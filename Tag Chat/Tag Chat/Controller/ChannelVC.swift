@@ -10,10 +10,20 @@ import UIKit
 
 class ChannelVC: UIViewController {
 
+    //Outlets
+    @IBOutlet weak var loginBtn: UIButton!
+    // Root VC เมื่อปิด X ที่หน้า create account จะมาที่หน้านี้
+    @IBAction func prepareForUnwind(segue: UIStoryboardSegue){}
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Setting size of Slide Menu
         self.revealViewController().rearViewRevealWidth = self.view.frame.size.width - 60
     }
-
+    
+    @IBAction func loginBtnPressed(_ sender: Any) {
+        performSegue(withIdentifier: TO_LOGIN, sender: nil)
+    }
+    
 }
